@@ -9,5 +9,5 @@ pipeline {
                 checkout scm
                 sh 'mvn clean install'
             }
-        }
+     }   }
 }
