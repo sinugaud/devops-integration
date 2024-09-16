@@ -8,9 +8,10 @@ pipeline {
             steps {
                 checkout scm
                 sh "mvn -version"
-                sh 'mvn clean install'
+                sh "mvn clean install"
+                sh "mvn clean deploy"
             }
      }   }
 }
 
-git branch: 'main', credentialsId: 'login', url: 'https://github.com/sinugaud/devops-integration'
+// git branch: 'main', credentialsId: 'login', url: 'https://github.com/sinugaud/devops-integration'
