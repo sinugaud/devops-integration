@@ -7,9 +7,9 @@ pipeline {
         stage('Build Maven') {
             steps {
                 checkout scm
-                sh "mvn -version"
-                sh "mvn clean install"
-                sh "mvn clean deploy"
+                bat "mvn -version"
+                bat "mvn clean install"
+                bat "mvn clean deploy"
             }
      }   }
 }
