@@ -9,7 +9,7 @@ pipeline {
                 checkout scm
                 bat "mvn -version"
                 bat "mvn clean install"
-                bat "mvn clean deploy"
+                bat "mvn clean deploy --settings C:\Users\Rutusoft\.m2\settings.xml"
             }
      }   }
 }
