@@ -4,15 +4,27 @@ pipeline {
         maven 'MAVEN_HOME'
     }
     stages {
-        stage('Build Maven') {
+        stage('Checkout Source') {
             steps {
                 checkout scm
+            }
+        }
+        stage('Verify Maven Version') {
+            steps {
                 bat "mvn -version"
+            }
+        }
+        stage('Build Project') {
+            steps {
                 bat "mvn clean install"
-//                 bat "mvn clean deploy --settings C:\\Users\\Rutusoft\\.m2\\settings.xml"
+            }
+        }
+        stage('Deploy Project') {
+            steps {
+                // Uncomment the following line if you want to use custom settings.xml for Maven authentication
+                // bat "mvn clean deploy --settings C:\\Users\\Rutusoft\\.m2\\settings.xml"
                 bat "mvn clean deploy"
             }
-     }   }
+        }
+    }
 }
-
-// git branch: 'main', credentialsId: 'login', url: 'https://github.com/sinugaud/devops-integration'
